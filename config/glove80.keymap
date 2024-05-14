@@ -14,11 +14,13 @@
 #define HYPER LC(LS(LG(LALT)))
 
 // layers
-#define LAY_DEFAULT 0
-#define LAY_LOWER 1
-#define LAY_ARROWS 2
-#define LAY_MAGIC 3
-#define LAY_EMPTY 6
+#define LAY_QWERTY 0
+#define LAY_DVORAK 1
+#define LAY_LOWER 2
+#define LAY_ARROWS 3
+#define LAY_MAGIC 4
+
+#define LAY_DEFAULT LAY_QWERTY
 
 / {
     behaviors {
@@ -91,31 +93,43 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default_layer {            //default       //default       //default       //default       //default       //default //default //default        //default//default //default //default      //default    //default    //default    //default       //default
             bindings = <
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
                 &kp F1             &kp F2          &kp F3          &kp F4          &kp F5                                                                                                           &kp F6       &kp F7       &kp F8       &kp F9          &kp F10
-                &kp EQUAL          &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                                                            &kp N6         &kp N7       &kp N8       &kp N9       &kp N0          &kp MINUS
-                &kp TAB            &kp Q           &kp W           &kp E           &kp R           &kp T                                                                             &kp Y          &kp U        &kp I        &kp O        &kp P           &kp BSLH
-                &kp ESC            &kp A           &kp S           &kp D           &kp F           &kp G                                                                             &kp H          &kp J        &kp K        &kp L        &kp SEMI        &kp SQT
-                &kp GRAVE          &kp Z           &kp X           &kp C           &kp V           &kp B           &kp LSHFT &kp LCTRL &layer_td        &kp LGUI &kp RCTRL &kp RSHFT &kp N          &kp M        &kp COMMA    &kp DOT      &kp FSLH        &kp PG_UP
-                &magic LAY_MAGIC 0 &kp HOME        &kp END         &kp LEFT        &kp RIGHT                       &kp BSPC  &kp DEL   &kp LALT         &kp RALT &kp RET   &kp SPACE                &kp DOWN     &kp UP       &kp LBKT     &kp RBKT        &kp PG_DN
+                &none              &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                                                            &kp N6         &kp N7       &kp N8       &kp N9       &kp N0          &none
+                &kp TAB            &none           &kp W           &kp E           &kp R           &kp T                                                                             &kp Y          &kp U        &kp I        &kp O        &none           &kp MINUS
+                &kp ESC            &kp A           &kp S           &kp D           &kp F           &kp G                                                                             &kp H          &kp J        &kp K        &kp L        &kp SEMI        &kp P
+                &kp GRAVE          &kp Q           &kp X           &kp C           &kp V           &kp B           &kp LSHFT &kp LCTRL &mo LAY_LOWER    &kp LGUI &kp RCTRL &kp RSHFT &kp N          &kp M        &kp COMMA    &kp DOT      &kp FSLH        &kp SQT 
+                &magic LAY_MAGIC 0 &kp Z           &kp EQUAL       &kp LEFT        &kp RIGHT                       &kp BSPC  &kp DEL   &kp LALT         &kp RALT &kp RET   &kp SPACE                &kp DOWN     &kp UP       &kp LBKT     &kp RBKT        &kp BSLH
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
             >;
-        };
-        lower_layer {
+        };                         //default       //default       //default       //default       //default       //default //default //default        //default//default //default //default      //default    //default    //default    //default       //default
+        layer_dvorak {             //dvorak        //dvorak        //dvorak        //dvorak        //dvorak        //dvorak  //dvorak  //dvorak         //dvorak //dvorak  //dvorak  //dvorak       //dvorak     //dvorak     //dvorak     //dvorak        //dvorak
+            bindings = <
+                //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
+                &kp F1             &kp F2          &kp F3          &kp F4          &kp F5                                                                                                           &kp F6       &kp F7       &kp F8       &kp F9          &kp F10
+                &none              &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                                                            &kp N6         &kp N7       &kp N8       &kp N9       &kp N0          &none
+                &kp TAB            &none           &kp COMMA       &kp DOT         &kp P           &kp Y                                                                             &kp F          &kp G        &kp C        &kp R        &none           &kp SLASH
+                &kp ESC            &kp A           &kp O           &kp E           &kp U           &kp I                                                                             &kp D          &kp H        &kp T        &kp N        &kp S           &kp L
+                &kp GRAVE          &kp SQT         &kp Q           &kp J           &kp K           &kp X           &trans    &trans    &mo LAY_LOWER    &trans   &trans    &trans    &kp B          &kp M        &kp W        &kp V        &kp SEMI        &kp MINUS
+                &magic LAY_MAGIC 0 &kp Z           &kp EQUAL       &kp LEFT        &kp RIGHT                       &trans    &trans    &trans           &trans   &trans    &trans                   &kp DOWN     &kp UP       &kp LBKT     &kp RBKT        &kp BSLH
+                //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
+            >;
+        };                         //dvorak        //dvorak        //dvorak        //dvorak        //dvorak        //dvorak  //dvorak  //dvorak         //dvorak //dvorak  //dvorak  //dvorak       //dvorak     //dvorak     //dvorak     //dvorak        //dvorak
+        lower_layer {              //lower         //lower         //lower         //lower         //lower         //lower   //lower   //lower          //lower  //lower   //lower   //lower        //lower      //lower      //lower      //lower         //lower
             bindings = <
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
                 &kp C_BRI_DN       &kp C_BRI_UP    &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                         &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &none           &kp PAUSE_BREAK
-                &trans             &none           &none           &none           &none           &kp HOME                                                                          &kp LANG1      &kp KP_MINUS &kp KP_EQUAL &kp KP_PLUS  &kp KP_MULTIPLY &none
-                &trans             &none           &none           &kp UP          &none           &kp END                                                                           &kp LANG2      &kp KP_N7    &kp KP_N8    &kp KP_N9    &kp KP_DIVIDE   &none
-                &trans             &none           &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_UP                                                                         &kp LANG3      &kp KP_N4    &kp KP_N5    &kp KP_N6    &kp KP_DOT      &kp PRINTSCREEN
-                &trans             &kp K_CMENU     &none           &kp F11         &kp F12         &kp PG_DN       &trans    &trans    &to LAY_DEFAULT  &trans   &trans    &trans    &kp LANG4      &kp KP_N1    &kp KP_N2    &kp KP_N3    &kp KP_ENTER    &trans
-                &trans             &none           &kp INS         &kp F11         &kp F12                         &trans    &trans    &trans           &trans   &trans    &trans                   &kp KP_N0    &kp KP_N0    &kp LPAR     &kp RPAR        &trans
+                &trans             &none           &none           &none           &none           &kp PG_UP                                                                         &kp LANG1      &kp KP_MINUS &kp KP_EQUAL &kp KP_PLUS  &kp KP_MULTIPLY &none
+                &trans             &none           &none           &kp UP          &none           &kp PG_DN                                                                         &kp LANG2      &kp KP_N7    &kp KP_N8    &kp KP_N9    &kp KP_DIVIDE   &none
+                &trans             &none           &kp LEFT        &kp DOWN        &kp RIGHT       &kp HOME                                                                          &kp LANG3      &kp KP_N4    &kp KP_N5    &kp KP_N6    &kp KP_DOT      &none
+                &trans             &kp K_CMENU     &none           &kp F11         &kp F12         &kp END         &trans    &trans    &to LAY_DEFAULT  &trans   &trans    &trans    &kp LANG4      &kp KP_N1    &kp KP_N2    &kp KP_N3    &kp KP_ENTER    &none
+                &trans             &none           &kp INS         &kp F11         &kp F12                         &trans    &trans    &trans           &trans   &trans    &trans                   &kp KP_N0    &kp KP_N0    &kp LPAR     &kp RPAR        &kp PRINTSCREEN
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
             >;
-        };
-        arrows_layer {
+        };                         //lower         //lower         //lower         //lower         //lower         //lower   //lower   //lower          //lower  //lower   //lower   //lower        //lower      //lower      //lower      //lower         //lower
+        arrows_layer {             //arrows        //arrows        //arrows        //arrows        //arrows        //arrows  //arrows  //arrows         //arrows //arrows  //arrows  //arrows       //arrows     //arrows     //arrows     //arrows        //arrows
             bindings = <
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
                 &none              &none           &none           &none           &none                                                                                                            &none        &none        &none        &none           &none
@@ -126,30 +140,30 @@
                 &none              &none           &none           &none           &none                           &trans     &trans   &trans           &trans   &trans    &trans                   &none        &none        &none        &none           &none
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
             >;
-        };
-        magic_layer {
+        };                         //arrows        //arrows        //arrows        //arrows        //arrows        //arrows  //arrows  //arrows         //arrows //arrows  //arrows  //arrows       //arrows     //arrows     //arrows     //arrows        //arrows
+        magic_layer {              //magic         //magic         //magic         //magic         //magic         //magic   //magic   //magic          //magic  //magic   //magic   //magic        //magic      //magic      //magic      //magic         //magic
             bindings = <
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
                 &bt BT_CLR         &none           &kp CAPSLOCK    &kp KP_NUMLOCK  &kp SCROLLLOCK                                                                                                   &none        &none        &none        &none           &bt BT_CLR_ALL
                 &none              &none           &none           &none           &none           &none                                                                             &to LAY_ARROWS &none        &none        &none        &none           &none
                 &none              &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                   &none          &none        &none        &none        &none           &none
-                &bootloader        &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                   &none          &none        &none        &none        &none           &bootloader
-                &sys_reset         &none           &none           &none           &none           &none           &bt_2      &bt_3    &none            &none    &none     &none     &none          &none        &none        &none        &none           &sys_reset
+                &bootloader        &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                   &to LAY_QWERTY &none        &none        &none        &none           &bootloader
+                &sys_reset         &none           &none           &none           &none           &none           &bt_2      &bt_3    &none            &none    &none     &none     &to LAY_DVORAK &none        &none        &none        &none           &sys_reset
                 &none              &none           &none           &none           &none                           &bt_0      &bt_1    &out OUT_USB     &none    &none     &none                    &none        &none        &none        &none           &none
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
             >;
-        };
-        empty_layer {
-            bindings = <
-                //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
-                &none              &none           &none           &none           &none                                                                                                            &none        &none        &none        &none           &none
-                &none              &none           &none           &none           &none           &none                                                                             &none          &none        &none        &none        &none           &none
-                &none              &none           &none           &none           &none           &none                                                                             &none          &none        &none        &none        &none           &none
-                &none              &none           &none           &none           &none           &none                                                                             &none          &none        &none        &none        &none           &none
-                &none              &none           &none           &none           &none           &none           &none      &none    &to LAY_DEFAULT  &none    &none     &none     &none          &none        &none        &none        &none           &none
-                &none              &none           &none           &none           &none                           &none      &none    &none            &none    &none     &none                    &none        &none        &none        &none           &none
-                //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
-            >;
-        };
+        };                         //magic         //magic         //magic         //magic         //magic         //magic   //magic   //magic          //magic  //magic   //magic   //magic        //magic      //magic      //magic      //magic         //magic
+//      empty_layer {              //empty         //empty         //empty         //empty         //empty         //empty   //empty   //empty          //empty  //empty   //empty   //empty        //empty      //empty      //empty      //empty         //empty
+//          bindings = <
+//              //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
+//              &none              &none           &none           &none           &none                                                                                                            &none        &none        &none        &none           &none
+//              &none              &none           &none           &none           &none           &none                                                                             &none          &none        &none        &none        &none           &none
+//              &none              &none           &none           &none           &none           &none                                                                             &none          &none        &none        &none        &none           &none
+//              &none              &none           &none           &none           &none           &none                                                                             &none          &none        &none        &none        &none           &none
+//              &none              &none           &none           &none           &none           &none           &none      &none    &to LAY_DEFAULT  &none    &none     &none     &none          &none        &none        &none        &none           &none
+//              &none              &none           &none           &none           &none                           &none      &none    &none            &none    &none     &none                    &none        &none        &none        &none           &none
+//              //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L            //T3R    //T2R     //T1R     //C1R          //C2R        //C3R        //C4R        //C5R           //C6R
+//          >;
+//      };                         //empty         //empty         //empty         //empty         //empty         //empty   //empty   //empty          //empty  //empty   //empty   //empty        //empty      //empty      //empty      //empty         //empty
     };
 };
