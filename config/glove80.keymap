@@ -17,7 +17,8 @@
 #define LAY_QWERTY 0
 #define LAY_LOWER 1
 #define LAY_ARROWS 2
-#define LAY_MAGIC 3
+#define LAY_ARROW2 3
+#define LAY_MAGIC 4
 
 #define LAY_DEFAULT LAY_QWERTY
 
@@ -119,15 +120,27 @@
         arrows_layer {             //arrows        //arrows        //arrows        //arrows        //arrows        //arrows  //arrows  //arrows     | //arrows  //arrows  //arrows        //arrows    //arrows     //arrows     //arrows     //arrows   //arrows
             bindings = <
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L        | //T3R     //T2R     //T1R           //C1R       //C2R        //C3R        //C4R        //C5R      //C6R
-                &none              &none           &none           &kt W           &kt E                                                                                                              &none        &none        &none        &none      &none
-                &none              &kp T           &kp N1          &kp N2          &kp N3          &kp N4                                                                                 &none       &none        &none        &none        &none      &none
-                &kp TAB            &none           &kp Q           &kp W           &kp E           &kp R                                                                                  &none       &kp I        &kp UP       &none        &none      &none
+                &none              &none           &none           &kt W           &none                                                                                                              &none        &none        &none        &none      &none
+                &none              &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                                                                 &none       &none        &none        &none        &none      &none
+                &kp TAB            &kp TAB         &kp T           &kp W           &kp E           &kp R                                                                                  &none       &kp I        &kp UP       &none        &none      &none
                 &kp ESC            &kp Z           &kp A           &kp S           &kp D           &kp F                                                                                  &none       &kp LEFT     &kp DOWN     &kp RIGHT    &none      &none
-                &none              &kp TAB         &kp X           &kp C           &kp V           &kp G           &kp LSHFT &kp LCTRL &none          &none     &kp RCTRL &kp RSHFT       &none       &kp M        &kp J        &kp L        &none      &none
-                &magic LAY_MAGIC 0 &kt Z           &kp J           &kp M           &kp I                           &kp SPACE &kp RET   &kp LALT       &kp RALT  &kp RET   &kp SPACE                   &none        &none        &none        &none      &none
+                &none              &kp Q           &kp X           &kp C           &kp V           &kp G           &kp LSHFT &kp LCTRL &mo LAY_ARROW2 &none     &kp RCTRL &kp RSHFT       &none       &kp M        &kp J        &kp L        &none      &none
+                &magic LAY_MAGIC 0 &none           &kp J           &kp M           &kp I                           &kp SPACE &kp RET   &kp LALT       &kp RALT  &kp RET   &kp SPACE                   &none        &none        &none        &none      &none
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L        | //T3R     //T2R     //T1R           //C1R       //C2R        //C3R        //C4R        //C5R      //C6R
             >;
         };                         //arrows        //arrows        //arrows        //arrows        //arrows        //arrows  //arrows  //arrows     | //arrows  //arrows  //arrows        //arrows    //arrows     //arrows     //arrows     //arrows   //arrows
+        arrows2_layer {            //arrows2       //arrows2       //arrows2       //arrows2       //arrows2       //arrows2 //arrows2 //arrows2    | //arrows2 //arrows2 //arrows2       //arrows2   //arrows2    //arrows2    //arrows2    //arrows2  //arrows2
+            bindings = <
+                //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L        | //T3R     //T2R     //T1R           //C1R       //C2R        //C3R        //C4R        //C5R      //C6R
+                &none              &none           &none           &kt UP          &none                                                                                                              &none        &none        &none        &none      &none
+                &none              &kp N6          &kp N7          &kp N8          &kp N9          &kp N0                                                                                 &none       &none        &none        &none        &none      &none
+                &none              &none           &none           &kp UP          &kt E           &kt R                                                                                  &none       &none        &none        &none        &none      &none
+                &kt TAB            &kt Z           &kp LEFT        &kp DOWN        &kp RIGHT       &kt F                                                                                  &none       &none        &none        &none        &none      &none
+                &none              &kt Q           &kt X           &kt C           &kt V           &kt G           &none      &none    &none          &none     &none     &to LAY_DEFAULT &none       &none        &none        &none        &none      &none
+                &none              &none           &kt J           &kt M           &kt I                           &none      &none    &none          &none     &none     &none                       &none        &none        &none        &none      &none
+                //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L        | //T3R     //T2R     //T1R           //C1R       //C2R        //C3R        //C4R        //C5R      //C6R
+            >;
+        };                         //arrows2       //arrows2       //arrows2       //arrows2       //arrows2       //arrows2 //arrows2 //arrows2    | //arrows2 //arrows2 //arrows2       //arrows2   //arrows2    //arrows2    //arrows2    //arrows2  //arrows2
         magic_layer {              //magic         //magic         //magic         //magic         //magic         //magic   //magic   //magic      | //magic   //magic   //magic         //magic     //magic      //magic      //magic      //magic    //magic
             bindings = <
                 //C6L              //C5L           //C4L           //C3L           //C2L           //C1L           //T1L     //T2L     //T3L        | //T3R     //T2R     //T1R           //C1R       //C2R        //C3R        //C4R        //C5R      //C6R
