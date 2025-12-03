@@ -2,9 +2,9 @@
 
 # requires to setup gloves to automount to these paths (and let you write to them)
 rightname=GLV80RHBOOT
-rightpath=/mnt/gloveR
+rightpath="$XDG_RUNTIME_DIR"/mount/gloveR
 leftname=GLV80LHBOOT
-leftpath=/mnt/gloveL
+leftpath="$XDG_RUNTIME_DIR"/mount/gloveL
 src=glove80.uf2
 dst=CURRENT.uf2
 
@@ -20,7 +20,8 @@ function install {
     done
 
     echo "mounting $2" >&2
-    mount "$2"
+    mkdir --parents "$2" || return 1
+    mount "$2" || return 1
 
     local path
     path="$2/$3"

@@ -8,12 +8,12 @@ while [[ $# -gt 0 ]]; do
             skip_build=y
             shift
         ;;
-        no-keymap)
-            skip_keymap=y
-            shift
-        ;;
         no-install)
             skip_install=y
+            shift
+        ;;
+        no-keymap)
+            skip_keymap=y
             shift
         ;;
         no-tag)
