@@ -17,17 +17,13 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10
 #include <dt-bindings/zmk/pointing.h>
 
-#define HYPER LC(LS(LG(LALT)))
-
 // layers
 #define LAY_QWERTY 0
-#define LAY_LOWER 1
+#define LAY_LOWER  1
 #define LAY_ARROWS 2
 #define LAY_ARROW2 3
-#define LAY_MOUSE 4
-#define LAY_MAGIC 5
-
-#define LAY_DEFAULT LAY_QWERTY
+#define LAY_MOUSE  4
+#define LAY_MAGIC  5
 
 / {
     behaviors {
